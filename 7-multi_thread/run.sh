@@ -1,7 +1,7 @@
 #! /bin/bash
 set -ex
-FIO_RUN_TIME=5
-FIO_RAMP_TIME=3
+FIO_RUN_TIME=10
+FIO_RAMP_TIME=5
 FIO_EXE=/home/atr/local/bin/fio
 
 SPDK_FIO_PLUGIN=
@@ -9,7 +9,7 @@ SPDK_SETUP_PATH=
 SPDK_PERF_PATH=
 
 #declare -a engine=("aio" "iou" "iou_c" "iou_s")
-declare -a engine=("iou")
+declare -a engine=("iou" "iou_c" "iou_s" "iou_cs")
 declare -a num_threads_socket1=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
 declare -a num_threads_socket2=("11" "12" "13" "14" "15" "16" "17" "18" "19" "20")
 

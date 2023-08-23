@@ -1,0 +1,215 @@
+atr@node2:/home/atr/src/Performance-Characterization-Storage-Stacks/7-multi_thread$ sudo ./run.sh 
++ FIO_RUN_TIME=10
++ FIO_RAMP_TIME=5
++ FIO_EXE=/home/atr/local/bin/fio
++ SPDK_FIO_PLUGIN=
++ SPDK_SETUP_PATH=
++ SPDK_PERF_PATH=
++ engine=('iou' 'iou_c' 'iou_s' 'iou_cs')
++ declare -a engine
++ num_threads_socket1=('1' '2' '3' '4' '5' '6' '7' '8' '9' '10')
++ declare -a num_threads_socket1
++ num_threads_socket2=('11' '12' '13' '14' '15' '16' '17' '18' '19' '20')
++ declare -a num_threads_socket2
++ RESULT=results
++ reset
++ for e in "${engine[@]}"
++ for t in "${num_threads_socket1[@]}"
++ numactl -C 19-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=1 -o results/iou_t_1.txt
++ for t in "${num_threads_socket1[@]}"B/s][r=329k IOPS][eta 00m:00s]
++ numactl -C 18-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=2 -o results/iou_t_2.txt
++ for t in "${num_threads_socket1[@]}"iB/s][r=668k IOPS][eta 00m:00s]
++ numactl -C 17-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=3 -o results/iou_t_3.txt
++ for t in "${num_threads_socket1[@]}"iB/s][r=1004k IOPS][eta 00m:00s]
++ numactl -C 16-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=4 -o results/iou_t_4.txt
++ for t in "${num_threads_socket1[@]}"iB/s][r=1338k IOPS][eta 00m:00s]
++ numactl -C 15-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=5 -o results/iou_t_5.txt
++ for t in "${num_threads_socket1[@]}"iB/s][r=1632k IOPS][eta 00m:00s]
++ numactl -C 14-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=6 -o results/iou_t_6.txt
++ for t in "${num_threads_socket1[@]}"7649MiB/s][r=1958k IOPS][eta 00m:00s]
++ numactl -C 13-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=7 -o results/iou_t_7.txt
++ for t in "${num_threads_socket1[@]}"(2),r(1)][100.0%][r=8542MiB/s][r=2187k IOPS][eta 00m:00s]
++ numactl -C 12-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=8 -o results/iou_t_8.txt
++ for t in "${num_threads_socket1[@]}"][r=9967MiB/s][r=2552k IOPS][eta 00m:00s]
++ numactl -C 11-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=9 -o results/iou_t_9.txt
++ for t in "${num_threads_socket1[@]}"iB/s][r=2956k IOPS][eta 00m:00s] 
++ numactl -C 10-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=10 -o results/iou_t_10.txt
++ for e in "${engine[@]}"100.0%][r=12.4GiB/s][r=3246k IOPS][eta 00m:00s]
++ for t in "${num_threads_socket1[@]}"
++ numactl -C 19-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=1 -o results/iou_c_t_1.txt
++ for t in "${num_threads_socket1[@]}"B/s][r=341k IOPS][eta 00m:00s]
++ numactl -C 18-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=2 -o results/iou_c_t_2.txt
++ for t in "${num_threads_socket1[@]}"iB/s][r=704k IOPS][eta 00m:00s]
++ numactl -C 17-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=3 -o results/iou_c_t_3.txt
++ for t in "${num_threads_socket1[@]}"iB/s][r=1046k IOPS][eta 00m:00s]
++ numactl -C 16-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=4 -o results/iou_c_t_4.txt
++ for t in "${num_threads_socket1[@]}"5296MiB/s][r=1356k IOPS][eta 00m:00s]
++ numactl -C 15-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=5 -o results/iou_c_t_5.txt
++ for t in "${num_threads_socket1[@]}"512MiB/s][r=1667k IOPS][eta 00m:00s]
++ numactl -C 14-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=6 -o results/iou_c_t_6.txt
++ for t in "${num_threads_socket1[@]}"iB/s][r=2017k IOPS][eta 00m:00s]
++ numactl -C 13-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=7 -o results/iou_c_t_7.txt
++ for t in "${num_threads_socket1[@]}"iB/s][r=2325k IOPS][eta 00m:00s] 
++ numactl -C 12-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=8 -o results/iou_c_t_8.txt
++ for t in "${num_threads_socket1[@]}"][r=10.1GiB/s][r=2650k IOPS][eta 00m:00s]
++ numactl -C 11-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=9 -o results/iou_c_t_9.txt
++ for t in "${num_threads_socket1[@]}"(1),r(1)][100.0%][r=11.7GiB/s][r=3055k IOPS][eta 00m:00s]
++ numactl -C 10-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=10 -o results/iou_c_t_10.txt
++ for e in "${engine[@]}"100.0%][r=12.6GiB/s][r=3303k IOPS][eta 00m:00s]
++ for t in "${num_threads_socket1[@]}"
++ numactl -C 19-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=1 -o results/iou_s_t_1.txt
++ for t in "${num_threads_socket1[@]}"B/s][r=6528 IOPS][eta 00m:00s]
++ numactl -C 18-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=2 -o results/iou_s_t_2.txt
++ for t in "${num_threads_socket1[@]}"1.0MiB/s][r=10.5k IOPS][eta 00m:00s]
++ numactl -C 17-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=3 -o results/iou_s_t_3.txt
++ for t in "${num_threads_socket1[@]}"/s][r=14.6k IOPS][eta 01d:11h:28m:51s]
++ numactl -C 16-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=4 -o results/iou_s_t_4.txt
++ for t in "${num_threads_socket1[@]}"864MiB/s][r=221k IOPS][eta 00m:00s]
++ numactl -C 15-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=5 -o results/iou_s_t_5.txt
++ for t in "${num_threads_socket1[@]}"44.4%][r=1631MiB/s][r=418k IOPS][eta 00m:20s]
++ numactl -C 14-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=6 -o results/iou_s_t_6.txt
++ for t in "${num_threads_socket1[@]}"(2)][61.5%][r=2369MiB/s][r=606k IOPS][eta 00m:10s]
++ numactl -C 13-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=7 -o results/iou_s_t_7.txt
++ for t in "${num_threads_socket1[@]}"61.5%][r=1311MiB/s][r=336k IOPS][eta 00m:10s]
++ numactl -C 12-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=8 -o results/iou_s_t_8.txt
++ for t in "${num_threads_socket1[@]}"768MiB/s][r=965k IOPS][eta 00m:10s]
++ numactl -C 11-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=9 -o results/iou_s_t_9.txt
++ for t in "${num_threads_socket1[@]}"/s][r=660k IOPS][eta 01d:12h:16m:10s]
++ numactl -C 10-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=10 -o results/iou_s_t_10.txt
++ for e in "${engine[@]}"),r(4)][34.8%][r=4381MiB/s][r=1122k IOPS][eta 00m:30s]
++ for t in "${num_threads_socket1[@]}"
++ numactl -C 19-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=1 -o results/iou_cs_t_1.txt
++ for t in "${num_threads_socket1[@]}"B/s][r=6528 IOPS][eta 00m:00s]
++ numactl -C 18-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=2 -o results/iou_cs_t_2.txt
++ for t in "${num_threads_socket1[@]}"1.0MiB/s][r=10.5k IOPS][eta 00m:00s]
++ numactl -C 17-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=3 -o results/iou_cs_t_3.txt
++ for t in "${num_threads_socket1[@]}"/s][r=14.3k IOPS][eta 01d:12h:09m:16s]
++ numactl -C 16-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=4 -o results/iou_cs_t_4.txt
++ for t in "${num_threads_socket1[@]}"/s][r=18.6k IOPS][eta 01d:12h:16m:10s]
++ numactl -C 15-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=5 -o results/iou_cs_t_5.txt
++ for t in "${num_threads_socket1[@]}"/s][r=510k IOPS][eta 52m:13s]    
++ numactl -C 14-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=6 -o results/iou_cs_t_6.txt
++ for t in "${num_threads_socket1[@]}"s][r=26.8k IOPS][eta 01d:12h:16m:10s]
++ numactl -C 13-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=7 -o results/iou_cs_t_7.txt
++ for t in "${num_threads_socket1[@]}"s][r=30.7k IOPS][eta 01d:12h:23m:05s]          
++ numactl -C 12-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=8 -o results/iou_cs_t_8.txt
++ for t in "${num_threads_socket1[@]}"][r=4438MiB/s][r=1136k IOPS][eta 00m:10s]
++ numactl -C 11-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=9 -o results/iou_cs_t_9.txt
++ for t in "${num_threads_socket1[@]}"(2)][0.0%][r=152MiB/s][r=38.9k IOPS][eta 01d:12h:09m:16s]
++ numactl -C 10-19 -m 1 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=10 -o results/iou_cs_t_10.txt
++ for e in "${engine[@]}"),r(5)][0.0%][r=3469MiB/s][r=888k IOPS][eta 01d:12h:16m:10s]
++ for t in "${num_threads_socket2[@]}"
++ numactl -C 9-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=11 -o results/iou_t_11.txt
++ for t in "${num_threads_socket2[@]}"61.5%][r=13.5GiB/s][r=3532k IOPS][eta 00m:10s]
++ numactl -C 8-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=12 -o results/iou_t_12.txt
++ for t in "${num_threads_socket2[@]}"r=14.5GiB/s][r=3801k IOPS][eta 00m:00s]
++ numactl -C 7-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=13 -o results/iou_t_13.txt
++ for t in "${num_threads_socket2[@]}"(1),r(1),f(1)][21.1%][r=15.7GiB/s][r=4121k IOPS][eta 01m:00s]
++ numactl -C 6-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=14 -o results/iou_t_14.txt
++ for t in "${num_threads_socket2[@]}"iB/s][r=4121k IOPS][eta 29m:42s]  
++ numactl -C 5-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=15 -o results/iou_t_15.txt
++ for t in "${num_threads_socket2[@]}"GiB/s][r=4117k IOPS][eta 31m:57s]   
++ numactl -C 4-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=16 -o results/iou_t_16.txt
++ for t in "${num_threads_socket2[@]}"][r=15.7GiB/s][r=4115k IOPS][eta 34m:13s]
++ numactl -C 3-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=17 -o results/iou_t_17.txt
++ for t in "${num_threads_socket2[@]}"GiB/s][r=4117k IOPS][eta 36m:08s]  
++ numactl -C 2-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=18 -o results/iou_t_18.txt
++ for t in "${num_threads_socket2[@]}"GiB/s][r=4115k IOPS][eta 38m:15s]  
++ numactl -C 1-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=19 -o results/iou_t_19.txt
++ for t in "${num_threads_socket2[@]}"GiB/s][r=4117k IOPS][eta 40m:22s]   
++ numactl -C 0-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou.conf --thread=1 --output-format=json --numjobs=20 -o results/iou_t_20.txt
++ for e in "${engine[@]}"2),f(1),r(5),f(1),r(2)][0.6%][r=15.7GiB/s][r=4111k IOPS][eta 42m:47s]
++ for t in "${num_threads_socket2[@]}"
++ numactl -C 9-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=11 -o results/iou_c_t_11.txt
++ for t in "${num_threads_socket2[@]}"%][r=13.9GiB/s][r=3648k IOPS][eta 00m:00s]
++ numactl -C 8-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=12 -o results/iou_c_t_12.txt
++ for t in "${num_threads_socket2[@]}"(2),f(1),r(2)][100.0%][r=14.8GiB/s][r=3892k IOPS][eta 00m:00s]
++ numactl -C 7-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=13 -o results/iou_c_t_13.txt
++ for t in "${num_threads_socket2[@]}"r(3),E(1),f(1),r(3)][1.0%][r=15.7GiB/s][r=4118k IOPS][eta 27m:28s]
++ numactl -C 6-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=14 -o results/iou_c_t_14.txt
++ for t in "${num_threads_socket2[@]}"iB/s][r=4121k IOPS][eta 29m:37s]   
++ numactl -C 5-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=15 -o results/iou_c_t_15.txt
++ for t in "${num_threads_socket2[@]}"%][r=15.7GiB/s][r=4118k IOPS][eta 31m:50s]
++ numactl -C 4-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=16 -o results/iou_c_t_16.txt
++ for t in "${num_threads_socket2[@]}"GiB/s][r=4117k IOPS][eta 34m:02s] 
++ numactl -C 3-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=17 -o results/iou_c_t_17.txt
++ for t in "${num_threads_socket2[@]}"GiB/s][r=4116k IOPS][eta 36m:59s]  
++ numactl -C 2-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=18 -o results/iou_c_t_18.txt
++ for t in "${num_threads_socket2[@]}"%][r=15.6GiB/s][r=4101k IOPS][eta 00m:00s]
++ numactl -C 1-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=19 -o results/iou_c_t_19.txt
++ for t in "${num_threads_socket2[@]}"GiB/s][r=4116k IOPS][eta 40m:17s]               
++ numactl -C 0-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_c.conf --thread=1 --output-format=json --numjobs=20 -o results/iou_c_t_20.txt
++ for e in "${engine[@]}"[0.6%][r=15.7GiB/s][r=4117k IOPS][eta 42m:25s]    
++ for t in "${num_threads_socket2[@]}"
++ numactl -C 9-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=11 -o results/iou_s_t_11.txt
++ for t in "${num_threads_socket2[@]}"34.8%][r=8868MiB/s][r=2270k IOPS][eta 00m:30s]
++ numactl -C 8-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=12 -o results/iou_s_t_12.txt
++ for t in "${num_threads_socket2[@]}"(1),E(1),r(6)][44.4%][r=5780MiB/s][r=1480k IOPS][eta 00m:20s]
++ numactl -C 7-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=13 -o results/iou_s_t_13.txt
++ for t in "${num_threads_socket2[@]}"r(4)][0.1%][r=7279MiB/s][r=1864k IOPS][eta 05h:25m:36s]
++ numactl -C 6-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=14 -o results/iou_s_t_14.txt
++ for t in "${num_threads_socket2[@]}"(2),_(3),r(4),_(1)][21.1%][r=8981MiB/s][r=2299k IOPS][eta 01m:00s]
++ numactl -C 5-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=15 -o results/iou_s_t_15.txt
++ for t in "${num_threads_socket2[@]}"=8879MiB/s][r=2273k IOPS][eta 00m:10s]
++ numactl -C 4-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=16 -o results/iou_s_t_16.txt
++ for t in "${num_threads_socket2[@]}"MiB/s][r=2087k IOPS][eta 02h:20m:19s]
++ numactl -C 3-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=17 -o results/iou_s_t_17.txt
++ for t in "${num_threads_socket2[@]}")][61.5%][r=11.6GiB/s][r=3054k IOPS][eta 00m:10s]
++ numactl -C 2-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=18 -o results/iou_s_t_18.txt
++ for t in "${num_threads_socket2[@]}",r(14)][61.5%][r=9.78GiB/s][r=2563k IOPS][eta 00m:10s]
++ numactl -C 1-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=19 -o results/iou_s_t_19.txt
++ for t in "${num_threads_socket2[@]}",r(10)][0.5%][r=9.94GiB/s][r=2606k IOPS][eta 49m:52s]
++ numactl -C 0-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_s.conf --thread=1 --output-format=json --numjobs=20 -o results/iou_s_t_20.txt
++ for e in "${engine[@]}"(1),E(1),r(2),E(1),f(1),r(6),E(1),r(6)][0.4%][r=9.96GiB/s][r=2611k IOPS][eta 01h:13m:43s]
++ for t in "${num_threads_socket2[@]}"
++ numactl -C 9-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=11 -o results/iou_cs_t_11.txt
++ for t in "${num_threads_socket2[@]}"%][r=7761MiB/s][r=1987k IOPS][eta 00m:10s]
++ numactl -C 8-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=12 -o results/iou_cs_t_12.txt
++ for t in "${num_threads_socket2[@]}"(1),E(1),r(3)][34.8%][r=7568MiB/s][r=1937k IOPS][eta 00m:30s]
++ numactl -C 7-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=13 -o results/iou_cs_t_13.txt
++ for t in "${num_threads_socket2[@]}"r(6)][34.8%][r=6300MiB/s][r=1613k IOPS][eta 00m:30s]
++ numactl -C 6-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=14 -o results/iou_cs_t_14.txt
++ for t in "${num_threads_socket2[@]}"_(1),r(4),_(1),r(2)][34.8%][r=8021MiB/s][r=2053k IOPS][eta 00m:30s]
++ numactl -C 5-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=15 -o results/iou_cs_t_15.txt
++ for t in "${num_threads_socket2[@]}"r(3)][28.6%][r=8596MiB/s][r=2200k IOPS][eta 00m:40s]
++ numactl -C 4-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=16 -o results/iou_cs_t_16.txt
++ for t in "${num_threads_socket2[@]}"_(1),r(2),f(1),r(7)][44.4%][r=9597MiB/s][r=2457k IOPS][eta 00m:20s]
++ numactl -C 3-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=17 -o results/iou_cs_t_17.txt
++ for t in "${num_threads_socket2[@]}"3%][r=9141MiB/s][r=2340k IOPS][eta 01h:19m:41s]
++ numactl -C 2-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=18 -o results/iou_cs_t_18.txt
++ for t in "${num_threads_socket2[@]}"E(2),r(8)][61.5%][r=8546MiB/s][r=2188k IOPS][eta 00m:10s]
++ numactl -C 1-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=19 -o results/iou_cs_t_19.txt
++ for t in "${num_threads_socket2[@]}"f(1),r(3),f(1),r(1),_(1),r(2),f(2),r(4)][34.8%][r=11.2GiB/s][r=2940k IOPS][eta 00m:30s]
++ numactl -C 0-19 env FIO_RUN_TIME=10 FIO_RAMP_TIME=5 /home/atr/local/bin/fio iou_cs.conf --thread=1 --output-format=json --numjobs=20 -o results/iou_cs_t_20.txt
++ num_threads=('1' '2' '3' '4' '5')(7),f(1),r(1)][0.4%][r=10.9GiB/s][r=2857k IOPS][eta 01h:07m:26s]
++ declare -a num_threads
++ chcpu -d 1-9
+CPU 1 disabled
+CPU 2 disabled
+CPU 3 disabled
+CPU 4 disabled
+CPU 5 disabled
+CPU 6 disabled
+CPU 7 disabled
+CPU 8 disabled
+CPU 9 disabled
++ e=iou_s
++ for t in "${num_threads[@]}"
++ FIO_RUN_TIME=10
++ FIO_RAMP_TIME=5
++ /home/atr/local/bin/fio iou_s.conf --numjobs=1 --thread=1 --output-format=json -o results/iou_s_t_1.txt
++ for t in "${num_threads[@]}"r=2498MiB/s][r=640k IOPS][eta 00m:00s]
++ FIO_RUN_TIME=10
++ FIO_RAMP_TIME=5
++ /home/atr/local/bin/fio iou_s.conf --numjobs=2 --thread=1 --output-format=json -o results/iou_s_t_2.txt
++ for t in "${num_threads[@]}"[r=4917MiB/s][r=1259k IOPS][eta 00m:00s]
++ FIO_RUN_TIME=10
++ FIO_RAMP_TIME=5
++ /home/atr/local/bin/fio iou_s.conf --numjobs=3 --thread=1 --output-format=json -o results/iou_s_t_3.txt
++ for t in "${num_threads[@]}"[r=7378MiB/s][r=1889k IOPS][eta 00m:00s]
++ FIO_RUN_TIME=10
++ FIO_RAMP_TIME=5
++ /home/atr/local/bin/fio iou_s.conf --numjobs=4 --thread=1 --output-format=json -o results/iou_s_t_4.txt
+^Catr@node2:/home/atr/src/Performance-Characterization-Storage-Stacks/7-multi_thread$ vim run.sh 
+atr@node2:/home/atr/src/Performance-Characterization-Storage-Stacks/7-multi_thread$ 
+
